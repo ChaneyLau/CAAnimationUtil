@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "BasicViewController.h"
 #import "TransitionViewController.h"
+#import "FallenLeavesViewController.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -27,6 +28,7 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.scrollEnabled = NO;
     [self.view addSubview:_tableView];
 }
 
@@ -38,7 +40,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -49,8 +51,10 @@
     }
     if (indexPath.row == 0) {
         cell.textLabel.text = @"基础动画";
-    } else {
+    } else if (indexPath.row == 1){
         cell.textLabel.text = @"翻页动画";
+    } else {
+        cell.textLabel.text = @"落叶动画";
     }
     return cell;
 }
@@ -63,8 +67,11 @@
     if (indexPath.row == 0) {
         BasicViewController *controller = [[BasicViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
-    } else {
+    } else if (indexPath.row == 1){
         TransitionViewController *controller = [[TransitionViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        FallenLeavesViewController *controller = [[FallenLeavesViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
