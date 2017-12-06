@@ -1,6 +1,6 @@
 # CAAnimationUtil
 
-QuartzCore框架下CAAnimation的动画集合：移动、旋转、缩放、弹簧、组合动画以及各种翻页效果和落叶动画。
+QuartzCore框架下CAAnimation的动画集合：移动、旋转、缩放、弹簧、组合动画以及各种翻页效果、落叶动画。
 
 ![CAAnimationUtil](Screenshot.gif)
 
