@@ -214,6 +214,8 @@ PS：动画是直接加在self.view上的，可根据需要自行修改，具体
 
 ### 落叶动画
 
+![CAAnimationUtil](ScreenshotLeaf.gif)
+
 使用UIView动画实现落叶效果，具体实现如下：
 
 ```objc

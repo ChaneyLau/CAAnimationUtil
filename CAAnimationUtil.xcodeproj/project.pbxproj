@@ -69,8 +69,8 @@
 			children = (
 				8B166CAC1FAC5FC3001E56B1 /* BasicViewController.h */,
 				8B166CAD1FAC5FC3001E56B1 /* BasicViewController.m */,
-				8B166CAF1FAC608C001E56B1 /* TransitionViewController.h */,
 				8B166CB01FAC608C001E56B1 /* TransitionViewController.m */,
+				8B166CAF1FAC608C001E56B1 /* TransitionViewController.h */,
 				8BCC1A601FD7838200F0223C /* FallenLeavesViewController.h */,
 				8BCC1A611FD7838200F0223C /* FallenLeavesViewController.m */,
 			);
