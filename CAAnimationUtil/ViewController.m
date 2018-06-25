@@ -10,6 +10,7 @@
 #import "BasicViewController.h"
 #import "TransitionViewController.h"
 #import "FallenLeavesViewController.h"
+#import "CombinationViewController.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -40,7 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,8 +54,10 @@
         cell.textLabel.text = @"基础动画";
     } else if (indexPath.row == 1){
         cell.textLabel.text = @"翻页动画";
-    } else {
+    } else if (indexPath.row == 2) {
         cell.textLabel.text = @"落叶动画";
+    } else {
+        cell.textLabel.text = @"组合动画";
     }
     return cell;
 }
@@ -67,11 +70,14 @@
     if (indexPath.row == 0) {
         BasicViewController *controller = [[BasicViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
-    } else if (indexPath.row == 1){
+    } else if (indexPath.row == 1) {
         TransitionViewController *controller = [[TransitionViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
-    } else {
+    } else if (indexPath.row == 2) {
         FallenLeavesViewController *controller = [[FallenLeavesViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        CombinationViewController *controller = [[CombinationViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
