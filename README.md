@@ -1,12 +1,12 @@
 # CAAnimationUtil
 
-QuartzCore框架下CAAnimation的动画集合：移动、旋转、缩放、弹簧、组合动画以及各种翻页效果、落叶动画。
+QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、旋转、缩放、弹簧、组合动画以及各种转场效果、漂移动画和常见动画示例。
 
-![CAAnimationUtil](Screenshot.gif)
+![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_1.gif)
 
 ### 移动
 
-```ruby
+```objc
 - (void)move
 {
     // 位置移动
@@ -28,7 +28,7 @@ QuartzCore框架下CAAnimation的动画集合：移动、旋转、缩放、弹�
 
 ### 旋转
 
-```ruby
+```objc
 - (void)rotate
 {
     // 对Y轴进行旋转
@@ -50,7 +50,7 @@ QuartzCore框架下CAAnimation的动画集合：移动、旋转、缩放、弹�
 
 ### 缩放
 
-```ruby
+```objc
 - (void)zoom
 {
     // 比例缩放
@@ -72,7 +72,7 @@ QuartzCore框架下CAAnimation的动画集合：移动、旋转、缩放、弹�
 
 ### 弹簧
 
-```ruby
+```objc
 - (void)spring
 {
     // 位置移动
@@ -100,7 +100,7 @@ QuartzCore框架下CAAnimation的动画集合：移动、旋转、缩放、弹�
 
 ### 组合动画
 
-```ruby
+```objc
 - (void)group
 {
     // x方向平移
@@ -139,9 +139,11 @@ QuartzCore框架下CAAnimation的动画集合：移动、旋转、缩放、弹�
 
 ### 翻页动画
 
+![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_2.gif)
+
 **动画效果的枚举**
 
-```ruby
+```objc
 typedef NS_ENUM(NSInteger,AnimationType) {
     kAnimationTypeFade,                         //淡入淡出
     kAnimationTypeMoveIn,                       //覆盖
@@ -163,7 +165,7 @@ typedef NS_ENUM(NSInteger,AnimationType) {
 ```
 其中包含8个私有API，使用过程需要留意，私有API是不被AppStore接受的。
 
-```ruby
+```objc
 // 全局常量
 NSString * const kCATransitionCube = @"cube";
 NSString * const kCATransitionSuckEffect = @"suckEffect";
@@ -179,7 +181,7 @@ NSString * const kCATransitionCameraIrisHollowClose = @"cameraIrisHollowClose";
 
 1.CAAnimation动画使用方式如下：
 
-```ruby
+```objc
 - (void)transitionWithType:(NSString *)type subtype:(NSString *)subtype
 {
     CATransition *animation = [CATransition animation];
@@ -212,11 +214,11 @@ NSString * const kCATransitionCameraIrisHollowClose = @"cameraIrisHollowClose";
 
 PS：动画是直接加在self.view上的，可根据需要自行修改，具体效果见Demo吧。
 
-### 落叶动画
+### 漂移动画
 
-![CAAnimationUtil](ScreenshotLeaf.gif)
+![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_3.gif)
 
-使用UIView动画实现落叶效果，具体实现如下：
+使用UIView动画实现漂移效果，具体实现如下：
 
 ```objc
 // 首先添加定时器
@@ -224,46 +226,48 @@ PS：动画是直接加在self.view上的，可根据需要自行修改，具体
 {
     [super viewDidLoad];
     // 动画定时器
-    flowTimer = [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(downLeaf) userInfo:nil repeats:YES];
+    fallTimer = [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(fallAction) userInfo:nil repeats:YES];
 }
 
-// 定时器方法【落叶实现】
-- (void)downLeaf
+// 下落
+- (void)fallAction
 {
-    // 使用落叶图片的角标
-    NSInteger leafNumber = random() % 5;
     // 起始位置随机
     NSInteger startX = self.view.bounds.size.width;
     startX = random() % startX;
     // 结束位置随机
     NSInteger endX = self.view.bounds.size.height;
     endX = random() % endX;
-    // 叶子大小随机
-    CGFloat scale = 1 / (random() % 10 + 1) + 1.0;
-    // 叶子下落速度随机
+    // 下落速度随机
     CGFloat speed = 1 / (random() % 10 + 1) + 1.0;
-    // 创建叶子imageView
-    UIImageView *leafImageView = [[UIImageView alloc] initWithFrame:CGRectMake(startX, -30.0* scale, 30.0 * scale, 30.0 * scale)];
-    leafImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"leaf_%ld",(long)leafNumber]];
-    leafImageView.alpha = 0.8;
-    [self.view addSubview:leafImageView];
+    // 创建视图
+    UIView *downView = [[UIView alloc] initWithFrame:CGRectMake(startX, -30.0, 30.0, 30.0)];
+    downView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:downView];
     // 开始动画
-    [UIView beginAnimations:@"leaf" context:(__bridge void * _Nullable)(leafImageView)];
+    [UIView beginAnimations:@"drift" context:(__bridge void * _Nullable)(downView)];
     [UIView setAnimationDuration:10 * speed];
-    leafImageView.frame = CGRectMake(endX, self.view.bounds.size.height, 35.0 * scale, 35.0 * scale);
-    leafImageView.alpha = 1.0;
+    downView.frame = CGRectMake(endX, self.view.bounds.size.height, 30.0, 30.0);
     [UIView setAnimationDidStopSelector:@selector(animationCompletion:finished:context:)];
     [UIView setAnimationDelegate:self];
     [UIView commitAnimations];
 }
 
-//下落到底部，移除
+// 下落到底部，移除
 - (void)animationCompletion:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
 {
-    UIImageView *leafImageView = (__bridge UIImageView *)(context);
-    [leafImageView removeFromSuperview];
+    // PS：多个动画的时候，可通过animationID区分
+    UIView *downView = (__bridge UIView *)(context);
+    [downView removeFromSuperview];
 }
+
 ```
+
+### 常见动画
+
+示例一：微博发布动画
+
+![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_4.gif)
 
 
 ### 参考链接

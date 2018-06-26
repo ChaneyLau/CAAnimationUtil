@@ -7,10 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "BasicViewController.h"
-#import "TransitionViewController.h"
-#import "FallenLeavesViewController.h"
-#import "CombinationViewController.h"
+#import "BasicAnimationController.h"
+#import "TransitionAnimationController.h"
+#import "DriftAnimationController.h"
+#import "CommonAnimationController.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -53,11 +53,11 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"基础动画";
     } else if (indexPath.row == 1){
-        cell.textLabel.text = @"翻页动画";
+        cell.textLabel.text = @"转场动画";
     } else if (indexPath.row == 2) {
-        cell.textLabel.text = @"落叶动画";
+        cell.textLabel.text = @"漂移动画";
     } else {
-        cell.textLabel.text = @"组合动画";
+        cell.textLabel.text = @"常见动画";
     }
     return cell;
 }
@@ -68,16 +68,16 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 0) {
-        BasicViewController *controller = [[BasicViewController alloc] init];
+        BasicAnimationController *controller = [[BasicAnimationController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
     } else if (indexPath.row == 1) {
-        TransitionViewController *controller = [[TransitionViewController alloc] init];
+        TransitionAnimationController *controller = [[TransitionAnimationController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
     } else if (indexPath.row == 2) {
-        FallenLeavesViewController *controller = [[FallenLeavesViewController alloc] init];
+        DriftAnimationController *controller = [[DriftAnimationController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
     } else {
-        CombinationViewController *controller = [[CombinationViewController alloc] init];
+        CommonAnimationController *controller = [[CommonAnimationController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
