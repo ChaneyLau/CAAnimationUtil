@@ -269,6 +269,65 @@ PS：动画是直接加在self.view上的，可根据需要自行修改，具体
 
 ![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_4.gif)
 
+```objc
+// 显示
+- (void)show
+{
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window addSubview:self];
+    NSArray *subViews = self.subviews;
+    [subViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UUButton *btn = obj;
+        CGFloat top = btn.top;
+        btn.alpha = 0.0;
+        btn.top = [UIScreen mainScreen].bounds.size.height;
+        // 加延时
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(idx * 0.03 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.25
+                                  delay:0
+                 usingSpringWithDamping:0.8
+                  initialSpringVelocity:30
+                                options:UIViewAnimationOptionCurveLinear
+                             animations:^{
+                                 btn.alpha = 1.0;
+                                 btn.top = top;
+                                 self.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0];
+                             } completion:nil];
+        });
+    }];
+}
+
+// 隐藏
+- (void)hide
+{
+    // 按钮
+    NSArray *subViews = self.subviews;
+    NSUInteger count = [subViews count];
+    [subViews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UUButton *btn = obj;
+        // 加延时
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((count - idx) * 0.03 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:5.0
+                                  delay:0
+                 usingSpringWithDamping:0.9
+                  initialSpringVelocity:5
+                                options:UIViewAnimationOptionCurveLinear
+                             animations:^{
+                                 btn.alpha = 0;
+                                 // 移除屏幕
+                                 btn.top = [UIScreen mainScreen].bounds.size.height + 50;
+                             } completion:nil];
+        });
+    }];
+    // 背景
+    [UIView animateWithDuration:0.5 animations:^{
+        self.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0];
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+}
+
+```
 
 ### 参考链接
 
