@@ -4,7 +4,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 
 ![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_1.gif)
 
-### 移动
+## 移动
 
 ```objc
 - (void)move
@@ -26,7 +26,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 }
 ```
 
-### 旋转
+## 旋转
 
 ```objc
 - (void)rotate
@@ -48,7 +48,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 }
 ```
 
-### 缩放
+## 缩放
 
 ```objc
 - (void)zoom
@@ -70,7 +70,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 }
 ```
 
-### 弹簧
+## 弹簧
 
 ```objc
 - (void)spring
@@ -98,7 +98,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 }
 ```
 
-### 组合动画
+## 组合动画
 
 ```objc
 - (void)group
@@ -137,7 +137,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 }
 ```
 
-### 翻页动画
+## 转场动画
 
 ![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_2.gif)
 
@@ -214,7 +214,7 @@ NSString * const kCATransitionCameraIrisHollowClose = @"cameraIrisHollowClose";
 
 PS：动画是直接加在self.view上的，可根据需要自行修改，具体效果见Demo吧。
 
-### 漂移动画
+## 漂移动画
 
 ![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_3.gif)
 
@@ -263,7 +263,7 @@ PS：动画是直接加在self.view上的，可根据需要自行修改，具体
 
 ```
 
-### 常见动画
+## 常见动画
 
 示例一：微博发布动画
 
@@ -329,7 +329,9 @@ PS：动画是直接加在self.view上的，可根据需要自行修改，具体
 
 ```
 
-### 参考链接
+其他示例待补充！
+
+## 参考链接
 
 https://github.com/lizelu/CATransitionDemo
 
