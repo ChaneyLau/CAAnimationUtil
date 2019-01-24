@@ -224,8 +224,8 @@
 				8BBD60751FAB240D00FBA7CA /* Sources */,
 				8BBD60761FAB240D00FBA7CA /* Frameworks */,
 				8BBD60771FAB240D00FBA7CA /* Resources */,
-				52477771702967B36CBDEACD /* [CP] Embed Pods Frameworks */,
-				8896775D18C3762BA7BA5B26 /* [CP] Copy Pods Resources */,
+				4C354A5E48C73346A1206E36 /* [CP] Embed Pods Frameworks */,
+				682F9D5FE74E3E818874B487 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,14 +319,18 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		52477771702967B36CBDEACD /* [CP] Embed Pods Frameworks */ = {
+		4C354A5E48C73346A1206E36 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,14 +338,18 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CAAnimationUtil/Pods-CAAnimationUtil-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8896775D18C3762BA7BA5B26 /* [CP] Copy Pods Resources */ = {
+		682F9D5FE74E3E818874B487 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,7 +441,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = iphoneos10.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -475,7 +483,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = iphoneos10.3;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -491,7 +499,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lea.CAAnimationUtil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos11.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -506,7 +514,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lea.CAAnimationUtil;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos11.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
