@@ -2,9 +2,11 @@
 
 QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、旋转、缩放、弹簧、组合动画以及各种转场效果、漂移动画和常见动画示例。
 
-![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_1.gif)
+## 基础动画
 
-## 移动
+![Screenshot](Screenshot/screenshot_1.gif)
+
+### 移动
 
 ```objc
 - (void)move
@@ -26,7 +28,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 }
 ```
 
-## 旋转
+### 旋转
 
 ```objc
 - (void)rotate
@@ -48,7 +50,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 }
 ```
 
-## 缩放
+### 缩放
 
 ```objc
 - (void)zoom
@@ -70,7 +72,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 }
 ```
 
-## 弹簧
+### 弹簧
 
 ```objc
 - (void)spring
@@ -98,7 +100,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 }
 ```
 
-## 组合动画
+### 组合动画
 
 ```objc
 - (void)group
@@ -139,7 +141,7 @@ QuartzCore框架下CAAnimation以及UIViewAnimation的动画集合：移动、�
 
 ## 转场动画
 
-![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_2.gif)
+![Screenshot](Screenshot/screenshot_2.gif)
 
 **动画效果的枚举**
 
@@ -216,7 +218,7 @@ PS：动画是直接加在self.view上的，可根据需要自行修改，具体
 
 ## 漂移动画
 
-![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_3.gif)
+![Screenshot](Screenshot/screenshot_3.gif)
 
 使用UIView动画实现漂移效果，具体实现如下：
 
@@ -265,9 +267,9 @@ PS：动画是直接加在self.view上的，可根据需要自行修改，具体
 
 ## 常见动画
 
-示例一：微博发布动画
+示例一：
 
-![Screenshot](https://github.com/CheeryLau/CAAnimationUtil/blob/master/Screenshot/screenshot_4.gif)
+![Screenshot](Screenshot/screenshot_4.gif)
 
 ```objc
 // 显示
@@ -330,14 +332,3 @@ PS：动画是直接加在self.view上的，可根据需要自行修改，具体
 ```
 
 其他示例待补充！
-
-## 参考链接
-
-https://github.com/lizelu/CATransitionDemo
-
-http://blog.csdn.net/iosevanhuang/article/details/14488239
-
-## 后记
-
-不定时更新，如有问题欢迎给我[留言](https://github.com/CheeryLau/CAAnimationUtil/issues)，我会及时回复。如果这个工具对你有一些帮助，请给我一个star，谢谢。
-
